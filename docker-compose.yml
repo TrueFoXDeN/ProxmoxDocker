@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  frontend:
+    build:
+      context: ./ProxmoxDashboard
+    image: frontend
+    restart: unless-stopped
+    networks:
+      - custom-network
+
+  backend:
+    build:
+      context: ./ProxmoxApi
+    image: backend
+    restart: unless-stopped
+    networks:
+      - custom-network
+
+networks:
+    custom-network:
+        driver: bridge
+        name: custom-network
