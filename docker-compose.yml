@@ -16,6 +16,8 @@ services:
       context: ./ProxmoxApi
     image: backend
     restart: unless-stopped
+    environment:
+      JWT_PASSWORD: 238gkEAw9yr7
     ports:
       - "5000:5000"
     networks:
